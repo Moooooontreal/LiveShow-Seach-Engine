@@ -35,6 +35,12 @@ import injurePic from "../assets/images/injure.svg";
 import Graph from "react-graph-vis";
 import {useTrendInfoStyles} from "@mui-treasury/styles/info/trend";
 import Box from "@material-ui/core/Box";
+import SearchResultItem from "../components/SearchResultItem";
+import Tooltip from "@material-ui/core/Tooltip";
+import IconButton from "@material-ui/core/IconButton";
+import love1 from "../assets/images/love1.png";
+import love0 from "../assets/images/love2.png";
+import performer from "../assets/images/performer.png";
 
 
 
@@ -88,6 +94,28 @@ const style = theme => ({
     kgCard: {
         padding: theme.spacing(5),
         marginTop: '-75px'
+    },
+    sizeAvatar: {
+        height: theme.spacing(18),
+        width: theme.spacing(18),
+        marginTop: '15px',
+        marginLeft: '20px'
+    },
+    textItem:{
+        marginBottom:'10px'
+    },
+    textItem2:{
+        marginTop: '-8px',
+        marginBottom:'25px',
+        fontSize: '24px'
+    },
+    text: {
+        marginLeft: '210px',
+        marginTop: '-125px',
+        fontWeight: 'bold'
+    },
+    performer: {
+        marginBottom: '100px'
     },
 })
 const StyledTableCell = withStyles((theme) => ({
@@ -360,6 +388,13 @@ class TeamPage extends Component {
         let rows = this.state.teamRelatedPeopleList;
         let rows1 = this.state.teamHonorRecordList;
 
+        let avatar = ' https:\\\\s2.showstart.com\\group2\\M00\\00\\18\\ChQyIlRlqLWAOjLMAACgZAf9sNc431.0x0.jpg'
+        let name = '新裤子'
+        let city = '背景'
+        let tag = '独立'
+        let url = 'https://www.showstart.com/artist/4034'
+        let isLoved = 'true'
+
         let emptyCaption, emptyCaption1;
         if(rows.length === 0) {
             emptyCaption = <caption style={{textAlign: 'center'}}>暂无数据</caption>
@@ -384,33 +419,60 @@ class TeamPage extends Component {
                                     <div className={classes.statisticCard}>
                                         <Row>
                                             <img src={statPic} style={{marginRight: '10px', height: '32px', width: '32px'}}/>
-                                            <Typography variant="h6" component="h5" >俱乐部阵容</Typography>
+                                            <Typography variant="h6" component="h5" >参演音乐人</Typography>
                                         </Row>
-                                        <TabContext>
-                                            <TabPanel >
-                                                <TableContainer component={Paper} >
-                                                    <Table aria-label="customized table">
-                                                        <TableHead>
-                                                            <TableRow>
-                                                                <StyledTableCell align="center">位置</StyledTableCell>
-                                                                <StyledTableCell align="center">号码</StyledTableCell>
-                                                                <StyledTableCell align="center">姓名</StyledTableCell>
-                                                            </TableRow>
-                                                        </TableHead>
-                                                        <TableBody>
-                                                            {rows.map((row) => (
-                                                                <StyledTableRow >
-                                                                    <StyledTableCell align="center">{row.role}</StyledTableCell>
-                                                                    <StyledTableCell align="center">{row.number?row.number:'~'}</StyledTableCell>
-                                                                    <StyledTableCell align="center">{row.name}</StyledTableCell>
-                                                                </StyledTableRow>
-                                                            ))}
-                                                        </TableBody>
-                                                        {emptyCaption}
-                                                    </Table>
-                                                </TableContainer>
-                                            </TabPanel >
-                                        </TabContext>
+                                        <Row>
+                                            <Column>
+                                                <div className={classes.avatar}>
+                                                    <Avatar src={avatar} alt="Avatar" className={classes.sizeAvatar} />
+                                                    <Column className={classes.text} style={{width:'30%'}}>
+                                                        <Item dangerouslySetInnerHTML={{__html:""+ name}} className={classes.textItem2}/>
+                                                        <Item dangerouslySetInnerHTML={{__html:"地区："+ city}} className={classes.textItem}/>
+                                                        <Item dangerouslySetInnerHTML={{__html:"风格："+ tag}} className={classes.textItem}/>
+                                                    </Column>
+                                                    <Column style={{width: '5%', marginLeft: '770px', marginTop: '-140px'}}>
+                                                        <Tooltip title="收藏音乐人" aria-label="Love">
+                                                            <IconButton aria-label="收藏" href={url} target='_blank'>
+                                                                <img src={isLoved ? love1 : love0} alt="love" className={classes.love} />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                        <Tooltip title="个人主页" aria-label="Performer">
+                                                            <IconButton aria-label="个人主页" href={url} target='_blank'>
+                                                                <img src={performer} alt="performer link" className={classes.performer} />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                    </Column>
+                                                </div>
+                                            </Column>
+                                        </Row>
+                                        {/*{*/}
+                                        {/*    for(let i in singers)*/}
+                                        {/*}*/}
+                                        {/*<TabContext>*/}
+                                        {/*    <TabPanel >*/}
+                                        {/*        <TableContainer component={Paper} >*/}
+                                        {/*            <Table aria-label="customized table">*/}
+                                        {/*                <TableHead>*/}
+                                        {/*                    <TableRow>*/}
+                                        {/*                        <StyledTableCell href={'https://www.baidu.com'} align="center">音乐人</StyledTableCell>*/}
+                                        {/*                        <StyledTableCell align="center">号码</StyledTableCell>*/}
+                                        {/*                        <StyledTableCell align="center">姓名</StyledTableCell>*/}
+                                        {/*                    </TableRow>*/}
+                                        {/*                </TableHead>*/}
+                                        {/*                <TableBody>*/}
+                                        {/*                    {rows.map((row) => (*/}
+                                        {/*                        <StyledTableRow >*/}
+                                        {/*                            <StyledTableCell align="center">{row.role}</StyledTableCell>*/}
+                                        {/*                            <StyledTableCell align="center">{row.number?row.number:'~'}</StyledTableCell>*/}
+                                        {/*                            <StyledTableCell align="center">{row.name}</StyledTableCell>*/}
+                                        {/*                        </StyledTableRow>*/}
+                                        {/*                    ))}*/}
+                                        {/*                </TableBody>*/}
+                                        {/*                {emptyCaption}*/}
+                                        {/*            </Table>*/}
+                                        {/*        </TableContainer>*/}
+                                        {/*    </TabPanel >*/}
+                                        {/*</TabContext>*/}
                                     </div>
                                     <Divider/>
                                     <div className={classes.statisticCard}>

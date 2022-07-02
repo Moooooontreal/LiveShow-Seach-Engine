@@ -124,14 +124,8 @@ const ReviewCard2Demo = React.memo(function(prams) {
             height: 180,
             backgroundSize: 'cover',
         },
-        buttonField:{
-
-        },
         performer: {
             marginBottom: '100px'
-        },
-        love:{
-
         },
         contents: {
             zIndex: 100000
@@ -178,10 +172,10 @@ const ReviewCard2Demo = React.memo(function(prams) {
                                     <Item dangerouslySetInnerHTML={{__html:"地区："+ city}} className={styles.textItem}/>
                                     <Item dangerouslySetInnerHTML={{__html:"风格："+ tag}} className={styles.textItem}/>
                                 </Column>
-                                <Column className={styles.buttonField} style={{width: '5%', marginLeft: '770px', marginTop: '-140px'}}>
+                                <Column style={{width: '5%', marginLeft: '770px', marginTop: '-140px'}}>
                                     <Tooltip title="收藏音乐人" aria-label="Love">
                                         <IconButton aria-label="收藏" href={url} target='_blank'>
-                                            <img src={isLoved ? love1 : love0} alt="love" className={styles.love} />
+                                            <img src={isLoved ? love1 : love0} alt="love"  />
                                         </IconButton>
                                     </Tooltip>
                                     <Tooltip title="个人主页" aria-label="Performer">

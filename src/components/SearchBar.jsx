@@ -36,25 +36,29 @@ class SearchBar extends Component {
     }
   };
   handleInputChange = (event,newInputValue) => {
-    const that = this
-    if(newInputValue===''){
-      this.setState({
-        complete:[],
-      })
-    }
-    else{
-      axios.get('/search/suggest/all/' +newInputValue)
-          .then(function (response) {
-            console.log(response.data)
-            that.setState({
-              complete: response.data,
-              input:newInputValue
-            })
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
+    this.setState({
+                // complete: response.data,
+                input:newInputValue
+              })
+    // const that = this
+    // if(newInputValue===''){
+    //   this.setState({
+    //     complete:[],
+    //   })
+    // }
+    // else{
+    //   axios.get('/search/suggest/all/' +newInputValue)
+    //       .then(function (response) {
+    //         console.log(response.data)
+    //         that.setState({
+    //           complete: response.data,
+    //           input:newInputValue
+    //         })
+    //       })
+    //       .catch(function (error) {
+    //         console.log(error);
+    //       });
+    // }
   }
   handleSearch = (e) => {
     e.preventDefault();
