@@ -437,8 +437,8 @@ class TeamPage extends Component {
                                                             </IconButton>
                                                         </Tooltip>
                                                         <Tooltip title="个人主页" aria-label="Performer">
-                                                            <IconButton aria-label="个人主页" href={url} target='_blank'>
-                                                                <img src={performer} alt="performer link" className={classes.performer} />
+                                                            <IconButton aria-label="个人主页" onCLick={this.btnFn.bind(this)} target='_blank'>
+                                                                <img src={performer} alt="performer link" className={styles.performer} />
                                                             </IconButton>
                                                         </Tooltip>
                                                     </Column>

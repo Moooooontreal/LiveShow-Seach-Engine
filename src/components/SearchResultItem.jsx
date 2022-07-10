@@ -179,7 +179,7 @@ const ReviewCard2Demo = React.memo(function(prams) {
                                         </IconButton>
                                     </Tooltip>
                                     <Tooltip title="个人主页" aria-label="Performer">
-                                        <IconButton aria-label="个人主页" href={url} target='_blank'>
+                                        <IconButton aria-label="个人主页" onCLick={this.btnFn.bind(this)} target='_blank'>
                                             <img src={performer} alt="performer link" className={styles.performer} />
                                         </IconButton>
                                     </Tooltip>
@@ -227,7 +227,9 @@ const ReviewCard2Demo = React.memo(function(prams) {
     );
 });
 class SearchResultItem extends Component {
-
+    btnFn() {
+        this.props.history.push('/player/123')
+    }
     render() {
         return (
             <ReviewCard2Demo info={this.props.data}/>
