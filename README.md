@@ -1,17 +1,8 @@
-npm ### Intro
+Live search engine project of ZJU Group03
 
-Front-end of  TechHub Search Engine.
+### introduction
 
-Developed with **Create React App** and **Material UI**
-
-Functions:
-
-- [x] Search back-end tech resources
-- [x] Filter by catalog & time
-- [x] Display Tags
-- [x] Pagination
-- [x] Word cloud
-
+a search engine to get newest ticket information
 
 
 ### Run
